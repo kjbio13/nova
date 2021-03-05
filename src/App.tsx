@@ -5,10 +5,7 @@ import Homepage from "./components/home-page/home-page.component";
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link,
-  useRouteMatch,
-  useParams,
+  Route
 } from "react-router-dom";
 
 const App: React.FC = () => {
