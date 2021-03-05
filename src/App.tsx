@@ -1,28 +1,24 @@
 import React, { useState } from "react";
 import "./App.css";
+import Header from "./components/header/header.component";
+import Homepage from "./components/home-page/home-page.component";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 
-interface AppProps {
-  sendSearchQuery(): void;
-}
-
-const App: React.FC<AppProps> = (sendSearchQuery) => {
-  const [searchValue, setSearchValue] = useState<string>();
-
-  const onSearchInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchValue(event.target.value);
-  };
-
-  const search = () => {};
-
+const App: React.FC = () => {
   return (
     <div>
-      <input
-        value={searchValue}
-        onChange={onSearchInput}
-        name="search"
-        type="text"
-      />
-      <button onClick={search}>Search</button>
+      <Header />
+      <Router>
+        <Switch>
+          <Route path="/home">
+            <Homepage />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 };
